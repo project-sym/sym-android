@@ -1,0 +1,6 @@
+<resources>
+
+    <style name="Base.Theme.Sym" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+</resources>

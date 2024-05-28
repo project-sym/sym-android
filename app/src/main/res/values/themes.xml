@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="Base.Theme.Sym" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Sym" parent="Base.Theme.Sym" />
+</resources>
