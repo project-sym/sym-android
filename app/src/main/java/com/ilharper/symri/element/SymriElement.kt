@@ -23,32 +23,27 @@ open class SymriElement private constructor() {
         attrs: MutableMap<String, String>,
         children: MutableSet<SymriElement>,
     ) : this() {
-        this@SymriElement.type = type
+        this.type = type
         attrsIntl = attrs
-        childrenIntl = children
+        this.children = children
     }
 
     constructor(
         type: String,
     ) : this() {
-        this@SymriElement.type = type
+        this.type = type
+        children = mutableSetOf()
     }
 
     lateinit var type: String
+    lateinit var children: MutableSet<SymriElement>
 
     private var attrsIntl: MutableMap<String, String>? = null
-    private var childrenIntl: MutableSet<SymriElement>? = null
 
     open var attrs: MutableMap<String, String>
         get() = attrsIntl!!
         set(value) {
             attrsIntl = value
-        }
-
-    var children: MutableSet<SymriElement>
-        get() = childrenIntl!!
-        set(value) {
-            childrenIntl = value
         }
 
     override fun toString(): String = toString(false)
