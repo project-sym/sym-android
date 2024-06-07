@@ -35,13 +35,13 @@ open class SymriElement private constructor() {
     private var attrsIntl: MutableMap<String, String>? = null
     private var childrenIntl: MutableSet<SymriElement>? = null
 
-    var attrs: MutableMap<String, String>
+    open var attrs: MutableMap<String, String>
         get() = attrsIntl!!
         set(value) {
             attrsIntl = value
         }
 
-    var children: MutableSet<SymriElement>
+    open var children: MutableSet<SymriElement>
         get() = childrenIntl!!
         set(value) {
             childrenIntl = value
