@@ -87,8 +87,6 @@ open class SymriElement private constructor() {
                     "&",
                 )
 
-        fun parse(source: String) {
-            Jsoup.parse(source, Parser.xmlParser()).children().map { SymriElement(it) }
-        }
+        fun parse(source: String) = Jsoup.parse(source, Parser.xmlParser()).children().map { SymriElement(it) }
     }
 }
