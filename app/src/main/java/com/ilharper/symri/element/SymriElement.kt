@@ -41,11 +41,27 @@ open class SymriElement private constructor() {
             attrsIntl = value
         }
 
-    open var children: MutableSet<SymriElement>
+    var children: MutableSet<SymriElement>
         get() = childrenIntl!!
         set(value) {
             childrenIntl = value
         }
+
+    override fun toString(): String = toString(false)
+
+    open fun toString(strip: Boolean): String {
+        val attrs = attrs
+        if (type == "text") {
+            val content = attrs["content"]
+            if (content != null) return if (strip) content else escape(content)
+        }
+
+        val inner = children.joinToString("") { it.toString(strip) }
+        if (strip) return inner
+        val attrsString = attrsToString(attrs)
+        if (children.isEmpty()) return "<$type$attrsString />"
+        return "<$type$attrsString>$inner</$type>"
+    }
 
     companion object {
         fun escape(
@@ -88,5 +104,21 @@ open class SymriElement private constructor() {
                 )
 
         fun parse(source: String) = Jsoup.parse(source, Parser.xmlParser()).children().map { SymriElement(it) }
+
+        private fun attrsToString(attrs: Map<String, String>): String =
+            attrs.map {
+                val key = paramCase(it.key)
+                if (it.value.isEmpty()) return@map " $key"
+                return@map """ $key=${escape(it.value, true)}"""
+            }.joinToString("")
+
+        private fun uncapitalize(source: String) = source[0].lowercase() + source.substring(1)
+
+        private fun paramCase(source: String) =
+            uncapitalize(source)
+                .replace('_', '-')
+                .replace(
+                    Regex(""".[A-Z]+"""),
+                ) { it.value[0] + "-" + it.value.substring(1).lowercase() }
     }
 }
