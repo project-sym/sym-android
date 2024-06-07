@@ -64,7 +64,8 @@ open class SymriElement private constructor() {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other == null || other.javaClass != javaClass) return false
+        if (other == null) return false
+        // No need to assert other.javaClass == javaClass!
         val o = other as SymriElement
         return o.type == type && o.children == children && o.attrs == attrs
     }
