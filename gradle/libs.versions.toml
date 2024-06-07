@@ -8,8 +8,11 @@ espressoCore = "3.5.1"
 appcompat = "1.6.1"
 material = "1.12.0"
 constraintlayout = "2.1.4"
-spotless = "6.25.0"
 activity = "1.9.0"
+
+jsoup = "1.17.2"
+
+spotless = "6.25.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -21,7 +24,10 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 
+jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
