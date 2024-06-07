@@ -3,7 +3,11 @@ package com.ilharper.symri.element
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import org.jsoup.parser.Parser
+import java.util.Objects
 
+/**
+ * Base class of Satori element.
+ */
 open class SymriElement private constructor() {
     /**
      * Create [SymriElement] from jsoup [Element].
@@ -62,6 +66,15 @@ open class SymriElement private constructor() {
         if (children.isEmpty()) return "<$type$attrsString />"
         return "<$type$attrsString>$inner</$type>"
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || other.javaClass != javaClass) return false
+        val o = other as SymriElement
+        return o.type == type && o.children == children && o.attrs == attrs
+    }
+
+    override fun hashCode(): Int = Objects.hash(type, children, attrs)
 
     companion object {
         fun escape(
