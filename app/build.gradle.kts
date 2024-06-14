@@ -61,6 +61,8 @@ dependencies {
     implementation(libs.hilt.runtime)
     annotationProcessor(libs.hilt.compiler)
 
+    implementation(libs.okhttp)
+
     implementation(libs.jsoup)
 
     testImplementation(libs.junit)
