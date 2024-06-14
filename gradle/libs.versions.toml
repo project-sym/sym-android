@@ -10,6 +10,8 @@ material = "1.12.0"
 constraintlayout = "2.1.4"
 activity = "1.9.0"
 
+dagger = "2.51.1"
+
 jsoup = "1.17.2"
 
 spotless = "6.25.0"
@@ -23,6 +25,9 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+
+hilt-runtime = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "dagger" }
 
 jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
 

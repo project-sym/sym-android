@@ -58,6 +58,9 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.activity)
 
+    implementation(libs.hilt.runtime)
+    annotationProcessor(libs.hilt.compiler)
+
     implementation(libs.jsoup)
 
     testImplementation(libs.junit)
