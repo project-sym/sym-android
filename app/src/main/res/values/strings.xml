@@ -10,4 +10,6 @@
     <string name="sym_settings_server_url">Satori 服务器</string>
     <string name="sym_settings_server_satori_prefix">Satori 端点</string>
     <string name="sym_settings_server_sym_prefix">Sym 端点</string>
+    <string name="sym_settings_default_server_satori_prefix">/satori</string>
+    <string name="sym_settings_default_server_sym_prefix">/sym</string>
 </resources>
