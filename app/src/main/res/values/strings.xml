@@ -12,4 +12,5 @@
     <string name="sym_settings_server_sym_prefix">Sym 端点</string>
     <string name="sym_settings_default_server_satori_prefix">/satori</string>
     <string name="sym_settings_default_server_sym_prefix">/sym</string>
+    <string name="sym_alive_description">保证 Sym 消息服务的持续运行。</string>
 </resources>

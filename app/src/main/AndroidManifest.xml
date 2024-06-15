@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <permission android:name="com.ilharper.sym.permission.ALIVE" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sym"
+        android:usesCleartextTraffic="true"
         tools:targetApi="34">
 
         <activity
@@ -34,6 +37,12 @@
         <activity
             android:name=".settings.SettingsActivity"
             android:launchMode="singleTask" />
+
+        <service
+            android:name=".alive.SymAliveService"
+            android:description="@string/sym_alive_description"
+            android:exported="true"
+            android:permission="com.ilharper.sym.permission.ALIVE" />
 
     </application>
 
