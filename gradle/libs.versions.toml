@@ -1,6 +1,7 @@
 [versions]
 agp = "8.4.1"
 kotlin = "2.0.0"
+ksp = "2.0.0-1.0.22"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
@@ -12,7 +13,10 @@ activity = "1.9.0"
 
 dagger = "2.51.1"
 
+moshi = "1.15.1"
+okio = "3.9.0"
 okhttp = "4.12.0"
+retrofit = "2.11.0"
 
 jsoup = "1.17.2"
 
@@ -31,12 +35,19 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 hilt-runtime = { group = "com.google.dagger", name = "hilt-android", version.ref = "dagger" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "dagger" }
 
+moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
+moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
+moshi-kotlin-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
+okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
 
 jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
