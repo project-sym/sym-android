@@ -10,6 +10,11 @@
             app:useSimpleSummaryProvider="true" />
 
         <EditTextPreference
+            app:key="@string/sym_settings_key_server_token"
+            app:title="@string/sym_settings_server_token"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
             app:key="@string/sym_settings_key_server_satori_prefix"
             app:title="@string/sym_settings_server_satori_prefix" />
 
