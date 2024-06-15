@@ -58,6 +58,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.activity)
+    implementation(libs.androidx.preference)
 
     implementation(libs.hilt.runtime)
     annotationProcessor(libs.hilt.compiler)

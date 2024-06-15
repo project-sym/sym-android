@@ -2,4 +2,12 @@
     <string name="app_name">Sym</string>
     <string name="common_enter">进入</string>
     <string name="common_settings">设置</string>
+    <string name="common_server">服务器</string>
+    <string name="sym_settings_key_server">sym_settings_server</string>
+    <string name="sym_settings_key_server_url">sym_settings_server_url</string>
+    <string name="sym_settings_key_server_satori_prefix">sym_settings_server_satori_prefix</string>
+    <string name="sym_settings_key_server_sym_prefix">sym_settings_server_sym_prefix</string>
+    <string name="sym_settings_server_url">Satori 服务器</string>
+    <string name="sym_settings_server_satori_prefix">Satori 端点</string>
+    <string name="sym_settings_server_sym_prefix">Sym 端点</string>
 </resources>
