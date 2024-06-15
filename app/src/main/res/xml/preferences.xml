@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:key="@string/sym_settings_key_server"
+        app:title="@string/common_server">
+        <EditTextPreference
+            app:key="@string/sym_settings_key_server_url"
+            app:title="@string/sym_settings_server_url"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            app:key="@string/sym_settings_key_server_satori_prefix"
+            app:title="@string/sym_settings_server_satori_prefix" />
+
+        <EditTextPreference
+            app:key="@string/sym_settings_key_server_sym_prefix"
+            app:title="@string/sym_settings_server_sym_prefix" />
+    </PreferenceCategory>
+</PreferenceScreen>
