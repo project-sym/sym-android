@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.activity)
+    implementation(libs.androidx.fragment)
     implementation(libs.androidx.preference)
     implementation(libs.androidx.lifecycle)
     implementation(libs.androidx.lifecycle.viewmodel)
