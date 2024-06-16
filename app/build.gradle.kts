@@ -84,6 +84,10 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.moshi)
 
+    implementation(libs.coil.base)
+    implementation(libs.coil.gif)
+    implementation(libs.coil.svg)
+
     implementation(libs.jsoup)
 
     testImplementation(libs.androidx.lifecycle.testing)
@@ -92,6 +96,7 @@ dependencies {
     testImplementation(libs.junit)
     testImplementation(libs.hilt.testing)
     kaptTest(libs.hilt.compiler)
+    testImplementation(libs.coil.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.hilt.testing)

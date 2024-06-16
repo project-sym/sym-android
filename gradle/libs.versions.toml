@@ -20,6 +20,7 @@ moshi = "1.15.1"
 okio = "3.9.0"
 okhttp = "4.12.0"
 retrofit = "2.11.0"
+coil = "2.6.0"
 
 jsoup = "1.17.2"
 
@@ -56,6 +57,11 @@ okio = { group = "com.squareup.okio", name = "okio", version.ref = "okio" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+
+coil-base = { group = "io.coil-kt", name = "coil-base", version.ref = "coil" }
+coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil" }
+coil-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
+coil-test = { group = "io.coil-kt", name = "coil-test", version.ref = "coil" }
 
 jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
 
