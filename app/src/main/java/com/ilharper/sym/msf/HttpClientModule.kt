@@ -1,7 +1,6 @@
 package com.ilharper.sym.msf
 
 import android.util.Log
-import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,9 +23,4 @@ class HttpClientModule {
             .addInterceptor(logging)
             .build()
     }
-
-    @Provides
-    fun provideMoshi(): Moshi =
-        Moshi.Builder()
-            .build()
 }
