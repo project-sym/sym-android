@@ -4,7 +4,7 @@ import com.ilharper.symri.entity.SatoriEvent
 import com.ilharper.symri.entity.SatoriEventBase
 import com.ilharper.symri.entity.SatoriOp
 import com.ilharper.symri.entity.SatoriPong
-import com.ilharper.symri.entity.resource.SatoriReady
+import com.ilharper.symri.entity.SatoriReady
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonAdapter.Factory
 import com.squareup.moshi.JsonDataException
