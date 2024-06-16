@@ -2,10 +2,12 @@ package com.ilharper.symri.entity.ext.resource
 
 import com.ilharper.symri.entity.resource.SatoriChannelType
 import com.ilharper.symri.entity.resource.SatoriLogin
+import com.squareup.moshi.JsonClass
 
 /**
  * 会话
  */
+@JsonClass(generateAdapter = true)
 class SymriContact {
     var logins: List<SatoriLogin>? = null
 
