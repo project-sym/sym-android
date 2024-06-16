@@ -65,6 +65,13 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.preference)
+    implementation(libs.androidx.lifecycle)
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+    implementation(libs.androidx.lifecycle.livedata)
+    implementation(libs.androidx.lifecycle.java8)
+    implementation(libs.androidx.lifecycle.service)
+    implementation(libs.androidx.lifecycle.process)
 
     implementation(libs.hilt.runtime)
     kapt(libs.hilt.compiler)
@@ -78,6 +85,9 @@ dependencies {
     implementation(libs.retrofit.moshi)
 
     implementation(libs.jsoup)
+
+    testImplementation(libs.androidx.lifecycle.testing)
+    testImplementation(libs.androidx.core.testing)
 
     testImplementation(libs.junit)
     testImplementation(libs.hilt.testing)
