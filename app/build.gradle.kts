@@ -1,7 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kapt)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -51,6 +53,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -61,7 +67,7 @@ dependencies {
     implementation(libs.androidx.preference)
 
     implementation(libs.hilt.runtime)
-    annotationProcessor(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
 
     implementation(libs.moshi)
     implementation(libs.moshi.kotlin)
@@ -74,6 +80,10 @@ dependencies {
     implementation(libs.jsoup)
 
     testImplementation(libs.junit)
+    testImplementation(libs.hilt.testing)
+    kaptTest(libs.hilt.compiler)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.hilt.testing)
+    kaptAndroidTest(libs.hilt.compiler)
 }
