@@ -81,6 +81,7 @@ dependencies {
     ksp(libs.moshi.kotlin.codegen)
     implementation(libs.okio)
     implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
     implementation(libs.retrofit)
     implementation(libs.retrofit.moshi)
 
