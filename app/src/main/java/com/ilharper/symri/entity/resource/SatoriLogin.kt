@@ -1,10 +1,12 @@
 package com.ilharper.symri.entity.resource
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 /**
  * 登录信息
  */
+@JsonClass(generateAdapter = true)
 class SatoriLogin {
     /**
      * 用户对象

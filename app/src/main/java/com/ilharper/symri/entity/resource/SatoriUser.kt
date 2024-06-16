@@ -1,7 +1,9 @@
 package com.ilharper.symri.entity.resource
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 class SatoriUser {
     /**
      * 用户 ID
