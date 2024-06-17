@@ -33,15 +33,15 @@ class SatoriMessage(
      * 消息发送的时间戳
      */
     @Json(name = "created_at")
-    var createdAt: Int? = null,
+    var createdAt: Long? = null,
     /**
      * 消息修改的时间戳
      */
     @Json(name = "updated_at")
-    var updatedAt: Int? = null,
+    var updatedAt: Long? = null,
     /**
      * 消息发送的时间戳
      */
     @Deprecated("use createdAt instead")
-    var timestamp: Int? = null,
+    var timestamp: Long? = null,
 )
