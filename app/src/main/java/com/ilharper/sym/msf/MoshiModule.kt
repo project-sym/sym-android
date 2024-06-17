@@ -3,6 +3,7 @@ package com.ilharper.sym.msf
 import com.ilharper.symri.entity.SatoriEventBase
 import com.ilharper.symri.entity.SatoriIdentify
 import com.ilharper.symri.entity.SatoriOp
+import com.ilharper.symri.entity.ext.resource.SymriContact
 import com.ilharper.symri.entity.resource.SatoriChannelType
 import com.ilharper.symri.moshi.SatoriEventJsonAdapterFactory
 import com.ilharper.symri.moshi.createEnumJsonAdapter
@@ -29,4 +30,7 @@ class MoshiModule {
 
     @Provides
     fun provideSatoriEventBaseJsonAdapter(moshi: Moshi): JsonAdapter<SatoriEventBase> = moshi.adapter(SatoriEventBase::class.java)
+
+    @Provides
+    fun provideSymriContactJsonAdapter(moshi: Moshi): JsonAdapter<SymriContact> = moshi.adapter(SymriContact::class.java)
 }
