@@ -24,6 +24,7 @@ okhttp = "4.12.0"
 retrofit = "2.11.0"
 coil = "2.6.0"
 
+apache-lang = "3.12.0"
 jsoup = "1.17.2"
 avatarimagegenerator = "1.5.0"
 
@@ -70,6 +71,7 @@ coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil" }
 coil-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
 coil-test = { group = "io.coil-kt", name = "coil-test", version.ref = "coil" }
 
+apache-commons-lang = { group = "org.apache.commons", name = "commons-lang3", version.ref = "apache-lang" }
 jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
 avatarimagegenerator = { group = "com.github.amoskorir", name = "avatarimagegenerator", version.ref = "avatarimagegenerator" }
 

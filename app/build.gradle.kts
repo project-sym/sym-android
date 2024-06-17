@@ -95,6 +95,7 @@ dependencies {
     implementation(libs.coil.gif)
     implementation(libs.coil.svg)
 
+    implementation(libs.apache.commons.lang)
     implementation(libs.jsoup)
     implementation(libs.avatarimagegenerator)
 
