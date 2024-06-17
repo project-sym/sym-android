@@ -1,10 +1,12 @@
 package com.ilharper.sym.contact
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ilharper.sym.databinding.ItemContactBinding
 
+@SuppressLint("NotifyDataSetChanged")
 class ContactAdapter(
     private val context: ContactFragment,
     private val viewModel: ContactViewModel,
