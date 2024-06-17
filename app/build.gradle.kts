@@ -95,6 +95,7 @@ dependencies {
     implementation(libs.coil.svg)
 
     implementation(libs.jsoup)
+    implementation(libs.avatarimagegenerator)
 
     testImplementation(libs.androidx.lifecycle.testing)
     testImplementation(libs.androidx.core.testing)
