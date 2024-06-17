@@ -77,6 +77,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.java8)
     implementation(libs.androidx.lifecycle.service)
     implementation(libs.androidx.lifecycle.process)
+    implementation(libs.androidx.paging.runtime)
 
     implementation(libs.hilt.runtime)
     kapt(libs.hilt.compiler)
@@ -99,6 +100,7 @@ dependencies {
 
     testImplementation(libs.androidx.lifecycle.testing)
     testImplementation(libs.androidx.core.testing)
+    testImplementation(libs.androidx.paging.common)
 
     testImplementation(libs.junit)
     testImplementation(libs.hilt.testing)
