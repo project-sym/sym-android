@@ -16,10 +16,10 @@ enum class SatoriChannelType(override val value: Int) : IEnumValue {
     /**
      * 分类频道
      */
-    CATEGORY(2),
+    CATEGORY(3), // 2
 
     /**
      * 语音频道
      */
-    VOICE(3),
+    VOICE(2), // 3
 }
