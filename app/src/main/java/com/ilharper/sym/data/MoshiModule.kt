@@ -1,4 +1,4 @@
-package com.ilharper.sym.msf
+package com.ilharper.sym.data
 
 import com.ilharper.symri.entity.SatoriEventBase
 import com.ilharper.symri.entity.SatoriIdentify
