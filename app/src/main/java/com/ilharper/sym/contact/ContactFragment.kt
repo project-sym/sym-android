@@ -19,7 +19,7 @@ class ContactFragment : Fragment() {
     @Inject
     lateinit var imageLoader: ImageLoader
 
-    private val contactViewModel: ContactViewModel by viewModels()
+    private val vm: ContactViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,7 +34,7 @@ class ContactFragment : Fragment() {
         view: View,
         savedInstanceState: Bundle?,
     ) {
-        contactAdapter = ContactAdapter(this, requireContext(), contactViewModel, imageLoader)
+        contactAdapter = ContactAdapter(this, requireContext(), vm, imageLoader)
         binding.listView.adapter = contactAdapter
     }
 }

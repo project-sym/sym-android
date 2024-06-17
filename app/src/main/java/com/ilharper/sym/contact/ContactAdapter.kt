@@ -17,12 +17,12 @@ import com.ilharper.sym.databinding.ItemContactBinding
 class ContactAdapter(
     fragment: ContactFragment,
     private val context: Context,
-    private val viewModel: ContactViewModel,
+    private val vm: ContactViewModel,
     private val imageLoader: ImageLoader,
 ) :
     RecyclerView.Adapter<ContactViewHolder>() {
     init {
-        viewModel.contacts.observe(fragment) {
+        vm.contacts.observe(fragment) {
             notifyDataSetChanged()
         }
     }
@@ -44,7 +44,7 @@ class ContactAdapter(
         position: Int,
     ) {
         val binding: ItemContactBinding = holder.getBinding()
-        val contact = viewModel.contacts.value!![position]
+        val contact = vm.contacts.value!![position]
 
         val name = if (contact.name?.isNotEmpty() == true) contact.name!! else "（未知会话）"
         binding.name.text = name
@@ -101,5 +101,5 @@ class ContactAdapter(
         )
     }
 
-    override fun getItemCount(): Int = viewModel.contacts.value?.size ?: 0
+    override fun getItemCount(): Int = vm.contacts.value?.size ?: 0
 }
