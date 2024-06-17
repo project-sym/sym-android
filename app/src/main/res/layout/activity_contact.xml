@@ -18,8 +18,7 @@
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/appBar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:title="@string/app_name" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.viewpager2.widget.ViewPager2
