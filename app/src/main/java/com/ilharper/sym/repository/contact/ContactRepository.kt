@@ -1,4 +1,4 @@
-package com.ilharper.sym.contactsvc
+package com.ilharper.sym.repository.contact
 
 import androidx.lifecycle.MutableLiveData
 import com.ilharper.sym.msf.RetrofitService
@@ -10,7 +10,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class ContactService
+class ContactRepository
     @Inject
     constructor(
         private val retrofitService: RetrofitService,

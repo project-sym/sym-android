@@ -9,9 +9,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.ilharper.sym.R
 import com.ilharper.sym.contact.ContactActivity
-import com.ilharper.sym.contactsvc.ContactService
 import com.ilharper.sym.databinding.ActivitySplashBinding
 import com.ilharper.sym.msf.Msf
+import com.ilharper.sym.repository.contact.ContactRepository
 import com.ilharper.sym.settings.SettingsActivity
 import com.ilharper.sym.settings.SymSettings
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +29,7 @@ class SplashActivity : AppCompatActivity() {
     lateinit var msf: Msf
 
     @Inject
-    lateinit var contactService: ContactService
+    lateinit var contactRepository: ContactRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +67,7 @@ class SplashActivity : AppCompatActivity() {
         finish()
 
         msf.tryEnsure()
-        contactService.refresh()
+        contactRepository.refresh()
 
         return true
     }
