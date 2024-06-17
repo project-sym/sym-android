@@ -17,7 +17,7 @@ import com.ilharper.sym.databinding.ItemContactBinding
 class ContactAdapter(
     fragment: ContactFragment,
     private val context: Context,
-    private val vm: ContactViewModel,
+    private val vm: ContactViewModelBase,
     private val imageLoader: ImageLoader,
 ) :
     RecyclerView.Adapter<ContactViewHolder>() {
