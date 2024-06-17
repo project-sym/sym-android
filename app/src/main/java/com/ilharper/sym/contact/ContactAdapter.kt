@@ -15,6 +15,7 @@ import coil.transform.CircleCropTransformation
 import com.avatarfirst.avatargenlib.AvatarGenerator
 import com.ilharper.sym.R
 import com.ilharper.sym.channellist.ChannelListActivity
+import com.ilharper.sym.chat.ChatActivity
 import com.ilharper.sym.databinding.ItemContactBinding
 import com.ilharper.sym.view.RecyclerViewBindingViewHolder
 import com.ilharper.symri.entity.ext.resource.SymriContact
@@ -56,7 +57,15 @@ class ContactAdapter(
             val contact = vm.contacts.value!![viewHolder.layoutPosition]
 
             when (contact.type) {
-                SatoriChannelType.TEXT -> TODO()
+                SatoriChannelType.TEXT ->
+                    context.startActivity(
+                        Intent(
+                            context,
+                            ChatActivity::class.java,
+                        ).apply {
+                            putExtra("data", symriContactJsonAdapter.toJson(contact))
+                        },
+                    )
 
                 SatoriChannelType.DIRECT ->
                     Toast.makeText(
