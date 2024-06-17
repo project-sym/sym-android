@@ -12,10 +12,10 @@ class ContactViewModel
     constructor(
         private val state: SavedStateHandle,
         private val contactRepository: ContactRepository,
-    ) : ViewModel() {
-        val contacts = contactRepository.contacts
+    ) : ViewModel(), ContactViewModelBase {
+        override val contacts = contactRepository.contacts
 
-        fun refresh(force: Boolean = false) {
+        override fun refresh(force: Boolean) {
             if (contacts.value?.isNotEmpty() == true && !force) return
             contactRepository.refresh()
         }
