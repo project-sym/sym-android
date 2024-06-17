@@ -3,10 +3,13 @@ package com.ilharper.symri.entity
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-class SatoriPacketIdentify : SatoriPacket {
-    override var op: Int = SatoriOp.Identify.value
+class SatoriPacketIdentify(
+    var body: SatoriIdentify? = null,
+    override var op: Int = SatoriOp.Identify.value,
+) : SatoriPacket
 
-    var token: String? = null
-
-    var sequence: Int? = null
-}
+@JsonClass(generateAdapter = true)
+class SatoriIdentify(
+    var token: String? = null,
+    var sequence: Int? = null,
+)
