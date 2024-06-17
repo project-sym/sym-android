@@ -35,6 +35,8 @@
             android:name=".contact.ContactActivity"
             android:launchMode="singleTask" />
 
+        <activity android:name=".channellist.ChannelListActivity" />
+
         <activity
             android:name=".settings.SettingsActivity"
             android:launchMode="singleTask" />

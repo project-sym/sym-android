@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import coil.ImageLoader
 import com.ilharper.sym.databinding.FragmentContactBinding
+import com.ilharper.symri.entity.ext.resource.SymriContact
+import com.squareup.moshi.JsonAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -18,6 +20,9 @@ class ContactFragment : Fragment() {
 
     @Inject
     lateinit var imageLoader: ImageLoader
+
+    @Inject
+    lateinit var symriContactJsonAdapter: JsonAdapter<SymriContact>
 
     private val vm: ContactViewModel by viewModels()
 
@@ -34,7 +39,14 @@ class ContactFragment : Fragment() {
         view: View,
         savedInstanceState: Bundle?,
     ) {
-        contactAdapter = ContactAdapter(this, requireContext(), vm, imageLoader)
+        contactAdapter =
+            ContactAdapter(
+                this,
+                requireContext(),
+                vm,
+                imageLoader,
+                symriContactJsonAdapter,
+            )
         binding.listView.adapter = contactAdapter
     }
 }
