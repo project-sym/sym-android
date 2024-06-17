@@ -1,5 +1,5 @@
 package com.ilharper.symri.entity
 
-interface SatoriEventBase {
+interface SatoriPacket {
     var op: Int
 }

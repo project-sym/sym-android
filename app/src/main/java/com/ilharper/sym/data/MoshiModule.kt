@@ -1,13 +1,13 @@
 package com.ilharper.sym.data
 
-import com.ilharper.symri.entity.SatoriEventBase
-import com.ilharper.symri.entity.SatoriIdentify
 import com.ilharper.symri.entity.SatoriOp
+import com.ilharper.symri.entity.SatoriPacket
+import com.ilharper.symri.entity.SatoriPacketIdentify
 import com.ilharper.symri.entity.ext.resource.SymriContact
 import com.ilharper.symri.entity.paging.Page
 import com.ilharper.symri.entity.resource.SatoriChannel
 import com.ilharper.symri.entity.resource.SatoriChannelType
-import com.ilharper.symri.moshi.SatoriEventJsonAdapterFactory
+import com.ilharper.symri.moshi.SatoriPacketJsonAdapterFactory
 import com.ilharper.symri.moshi.createEnumJsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapter
@@ -26,14 +26,14 @@ class MoshiModule {
         Moshi.Builder()
             .addAdapter(createEnumJsonAdapter<SatoriChannelType>())
             .addAdapter(createEnumJsonAdapter<SatoriOp>())
-            .add(SatoriEventJsonAdapterFactory())
+            .add(SatoriPacketJsonAdapterFactory())
             .build()
 
     @Provides
-    fun provideSatoriIdentifyJsonAdapter(moshi: Moshi) = moshi.adapter<SatoriIdentify>()
+    fun provideSatoriIdentifyJsonAdapter(moshi: Moshi) = moshi.adapter<SatoriPacketIdentify>()
 
     @Provides
-    fun provideSatoriEventBaseJsonAdapter(moshi: Moshi) = moshi.adapter<SatoriEventBase>()
+    fun provideSatoriEventBaseJsonAdapter(moshi: Moshi) = moshi.adapter<SatoriPacket>()
 
     @Provides
     fun provideSymriContactJsonAdapter(moshi: Moshi) = moshi.adapter<SymriContact>()

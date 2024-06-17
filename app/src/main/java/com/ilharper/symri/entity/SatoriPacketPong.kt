@@ -3,6 +3,6 @@ package com.ilharper.symri.entity
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-class SatoriEvent : SatoriEventBase {
-    override var op: Int = SatoriOp.Event.value
+class SatoriPacketPong : SatoriPacket {
+    override var op: Int = SatoriOp.Pong.value
 }
