@@ -21,7 +21,6 @@ class ContactAdapter(
         viewType: Int,
     ): ContactViewHolder {
         val binding = ItemContactBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        binding.lifecycleOwner = context
 
         binding.root.setOnClickListener {
         }
