@@ -1,5 +1,6 @@
 package com.ilharper.symri.entity
 
+import android.os.Parcelable
 import com.ilharper.symri.entity.resource.SatoriArgv
 import com.ilharper.symri.entity.resource.SatoriButton
 import com.ilharper.symri.entity.resource.SatoriChannel
@@ -11,7 +12,10 @@ import com.ilharper.symri.entity.resource.SatoriMessage
 import com.ilharper.symri.entity.resource.SatoriUser
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
+import java.io.Serializable
 
+@Parcelize
 @JsonClass(generateAdapter = true)
 class SatoriEvent(
     /**
@@ -75,4 +79,4 @@ class SatoriEvent(
      * 事件的目标用户
      */
     var user: SatoriUser? = null,
-)
+) : Serializable, Parcelable

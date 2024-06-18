@@ -1,13 +1,17 @@
 package com.ilharper.symri.entity.ext.resource
 
+import android.os.Parcelable
 import com.ilharper.symri.entity.resource.SatoriChannelType
 import com.ilharper.symri.entity.resource.SatoriLogin
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
 import java.io.Serializable
 
 /**
  * 会话
  */
+
+@Parcelize
 @JsonClass(generateAdapter = true)
 class SymriContact(
     var logins: List<SatoriLogin>? = null,
@@ -31,4 +35,4 @@ class SymriContact(
      * 会话类型
      */
     var type: SatoriChannelType? = null,
-) : Serializable
+) : Serializable, Parcelable

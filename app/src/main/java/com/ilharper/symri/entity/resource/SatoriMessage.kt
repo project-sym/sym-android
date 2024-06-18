@@ -1,8 +1,12 @@
 package com.ilharper.symri.entity.resource
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.parcelize.Parcelize
+import java.io.Serializable
 
+@Parcelize
 @JsonClass(generateAdapter = true)
 class SatoriMessage(
     /**
@@ -44,4 +48,4 @@ class SatoriMessage(
      */
     @Deprecated("use createdAt instead")
     var timestamp: Long? = null,
-)
+) : Serializable, Parcelable
