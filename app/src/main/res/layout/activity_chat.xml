@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".chat.ChatActivity">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <FrameLayout
         android:id="@+id/rootContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,10 +25,8 @@
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_anchor="@id/bottomAppBar"
-            app:layout_anchorGravity="top"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/bottomAppBar"
@@ -57,5 +55,7 @@
                 android:layout_height="wrap_content"
                 android:text="发送" />
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </FrameLayout>
+
 </layout>
