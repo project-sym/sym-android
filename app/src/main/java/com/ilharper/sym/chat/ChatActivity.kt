@@ -69,10 +69,19 @@ class ChatActivity : AppCompatActivity() {
                 imageLoader,
             )
         binding.listView.adapter = chatAdapter
-        vm.messages.observe(this) { binding.listView.scrollToPosition(0) }
+        vm.messages.observe(this) { binding.listView.scrollToPosition(vm.messages.value!!.size - 1) }
 
         binding.appBarContainer.addOnLayoutChangeListener(updateListViewPaddingTop)
         binding.bottomAppBar.addOnLayoutChangeListener(updateListViewPaddingBottom)
+
+        binding
+            .appBarContainerBlurContainer
+            .setupWith(binding.listView)
+        // .setFrameClearDrawable(binding.root.background)
+        binding
+            .bottomAppBarBlurContainer
+            .setupWith(binding.listView)
+        // .setFrameClearDrawable(binding.root.background)
     }
 
     private val updateListViewPaddingTop =

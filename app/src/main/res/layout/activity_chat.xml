@@ -10,17 +10,6 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/appBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.appbar.AppBarLayout>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listView"
             android:layout_width="match_parent"
@@ -28,33 +17,71 @@
             android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/bottomAppBar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/appBarContainerBlurContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/appBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </eightbitlab.com.blurview.BlurView>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:orientation="horizontal">
+            android:background="?attr/colorSurface">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textField"
-                style="?attr/textInputFilledStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/bottomAppBarBlurContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/bottomAppBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:maxLines="1" />
+                    android:orientation="horizontal">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="1"
+                        android:inputType="text"
+                        android:maxLines="1" />
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="发送" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                    <com.google.android.material.button.MaterialButton
+                        style="?attr/materialIconButtonOutlinedStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="4dp"
+                        app:icon="@drawable/ic_attach_file" />
+
+                    <com.google.android.material.button.MaterialButton
+                        style="?attr/materialIconButtonFilledTonalStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="4dp"
+                        app:icon="@drawable/ic_send" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </eightbitlab.com.blurview.BlurView>
+
+        </FrameLayout>
 
     </FrameLayout>
 
