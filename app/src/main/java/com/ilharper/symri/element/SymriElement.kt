@@ -15,13 +15,13 @@ open class SymriElement private constructor() {
     internal constructor(jsoupElement: Element) : this(
         jsoupElement.tagName(),
         jsoupElement.attributes().associate { it.key to it.value }.toMutableMap(),
-        jsoupElement.children().map { SymriElement(it) }.toMutableSet(),
+        jsoupElement.children().map { SymriElement(it) }.toMutableList(),
     )
 
     constructor(
         type: String,
         attrs: MutableMap<String, String>,
-        children: MutableSet<SymriElement>,
+        children: MutableList<SymriElement>,
     ) : this() {
         this.type = type
         attrsIntl = attrs
@@ -32,11 +32,11 @@ open class SymriElement private constructor() {
         type: String,
     ) : this() {
         this.type = type
-        children = mutableSetOf()
+        children = mutableListOf()
     }
 
     lateinit var type: String
-    lateinit var children: MutableSet<SymriElement>
+    lateinit var children: MutableList<SymriElement>
 
     private var attrsIntl: MutableMap<String, String>? = null
 
