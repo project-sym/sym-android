@@ -94,7 +94,7 @@ open class SatoriElement private constructor() : Serializable, Parcelable {
         val inner = children.joinToString("") { it.toString(strip) }
         if (strip) return inner
         val attrsString = attrsToString(attrs)
-        if (children.isEmpty()) return "<$type$attrsString />"
+        if (children.isEmpty()) return "<$type$attrsString/>"
         return "<$type$attrsString>$inner</$type>"
     }
 
@@ -204,7 +204,7 @@ open class SatoriElement private constructor() : Serializable, Parcelable {
             attrs.map {
                 val key = paramCase(it.key)
                 if (it.value.isEmpty()) return@map " $key"
-                return@map """ $key=${escape(it.value, true)}"""
+                return@map """ $key="${escape(it.value, true)}""""
             }.joinToString("")
 
         private fun uncapitalize(source: String) = source[0].lowercase() + source.substring(1)
