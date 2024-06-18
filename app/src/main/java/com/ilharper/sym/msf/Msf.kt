@@ -14,4 +14,6 @@ class Msf
         fun tryEnsure() = listener.tryEnsure()
 
         fun stop() = listener.stop()
+
+        val event get() = listener.event
     }

@@ -17,6 +17,7 @@ import com.ilharper.symri.entity.SatoriPacketPong
 import com.ilharper.symri.entity.SatoriPacketReady
 import com.squareup.moshi.JsonAdapter
 import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.Subject
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
@@ -39,7 +40,8 @@ class MsfListener
     ) : WebSocketListener() {
         private var ws: WebSocket? = null
 
-        val event = PublishSubject.create<SatoriEvent>().toSerialized()
+        // Must specify type here to avoid kotlin recognize this as Subject<SatoriEvent!>
+        val event: Subject<SatoriEvent> = PublishSubject.create<SatoriEvent>().toSerialized()
 
         fun isLoaded() = ws != null
 
