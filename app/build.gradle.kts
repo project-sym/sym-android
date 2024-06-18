@@ -111,6 +111,8 @@ dependencies {
     implementation(libs.rxkotlin)
     implementation(libs.reactivestreams)
 
+    implementation(libs.blurview)
+
     implementation(libs.apache.commons.lang)
     implementation(libs.jsoup)
     implementation(libs.avatarimagegenerator)

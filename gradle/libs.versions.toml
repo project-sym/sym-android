@@ -34,6 +34,8 @@ rxandroid = "3.0.2"
 rxkotlin = "3.0.1"
 reactivestreams = "1.0.4"
 
+blurview = "version-2.0.4"
+
 apache-lang = "3.12.0"
 jsoup = "1.17.2"
 avatarimagegenerator = "1.5.0"
@@ -94,6 +96,8 @@ rxjava = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "rxjav
 rxandroid = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "rxandroid" }
 rxkotlin = { group = "io.reactivex.rxjava3", name = "rxkotlin", version.ref = "rxkotlin" }
 reactivestreams = { group = "org.reactivestreams", name = "reactive-streams", version.ref = "reactivestreams" }
+
+blurview = { group = "com.github.Dimezis", name = "BlurView", version.ref = "blurview" }
 
 apache-commons-lang = { group = "org.apache.commons", name = "commons-lang3", version.ref = "apache-lang" }
 jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
