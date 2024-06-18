@@ -83,6 +83,7 @@ class ChatAdapter(
         )
 
         val contentContainer = binding.contentContainer
+        contentContainer.removeAllViews()
         contentContainer.addView(
             MaterialTextView(context)
                 .apply {
