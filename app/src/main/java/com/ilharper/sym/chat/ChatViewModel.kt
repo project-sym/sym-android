@@ -7,9 +7,11 @@ import androidx.lifecycle.ViewModel
 import com.ilharper.sym.msf.Msf
 import com.ilharper.sym.msf.RetrofitService
 import com.ilharper.sym.viewmodel.RefreshableViewModel
+import com.ilharper.symri.element.SatoriElement
 import com.ilharper.symri.entity.ext.resource.SymriContact
 import com.ilharper.symri.entity.ext.resource.toMessage
 import com.ilharper.symri.entity.paging.Page
+import com.ilharper.symri.entity.payload.CreateMessagePayload
 import com.ilharper.symri.entity.payload.ListMessagePayload
 import com.ilharper.symri.entity.resource.SatoriMessage
 import com.ilharper.symri.rxjava.ofChannel
@@ -78,6 +80,31 @@ class ChatViewModel
 
                     override fun onFailure(
                         call: Call<Page<SatoriMessage>>,
+                        t: Throwable,
+                    ) {
+                    }
+                },
+            )
+        }
+
+        fun createMessage(content: List<SatoriElement>) {
+            retrofitService.satoriService!!.createMessage(
+                contact.platform!!,
+                contact.logins!![0].selfId!!,
+                CreateMessagePayload(
+                    contact.id,
+                    content,
+                ),
+            ).enqueue(
+                object : Callback<List<SatoriMessage>> {
+                    override fun onResponse(
+                        call: Call<List<SatoriMessage>>,
+                        response: Response<List<SatoriMessage>>,
+                    ) {
+                    }
+
+                    override fun onFailure(
+                        call: Call<List<SatoriMessage>>,
                         t: Throwable,
                     ) {
                     }

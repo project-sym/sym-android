@@ -11,6 +11,7 @@ import coil.ImageLoader
 import com.ilharper.sym.R
 import com.ilharper.sym.databinding.ActivityChatBinding
 import com.ilharper.sym.symri.element.Renderer
+import com.ilharper.symri.element.SatoriText
 import com.ilharper.symri.entity.ext.resource.SymriContact
 import com.squareup.moshi.JsonAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -87,6 +88,14 @@ class ChatActivity : AppCompatActivity() {
             .bottomAppBarBlurContainer
             .setupWith(binding.listView)
         // .setFrameClearDrawable(binding.root.background)
+
+        binding.sendButton.setOnClickListener {
+            vm.createMessage(
+                listOf(
+                    SatoriText(binding.textEdit.text.toString()),
+                ),
+            )
+        }
     }
 
     private val updateListViewPaddingTop =

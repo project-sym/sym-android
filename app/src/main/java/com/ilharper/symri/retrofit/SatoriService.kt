@@ -1,6 +1,7 @@
 package com.ilharper.symri.retrofit
 
 import com.ilharper.symri.entity.paging.Page
+import com.ilharper.symri.entity.payload.CreateMessagePayload
 import com.ilharper.symri.entity.payload.ListChannelPayload
 import com.ilharper.symri.entity.payload.ListMessagePayload
 import com.ilharper.symri.entity.resource.SatoriChannel
@@ -24,4 +25,11 @@ interface SatoriService {
         @Header("X-Self-ID") loginId: String,
         @Body payload: ListMessagePayload,
     ): Call<Page<SatoriMessage>>
+
+    @POST("message.create")
+    fun createMessage(
+        @Header("X-Platform") platform: String,
+        @Header("X-Self-ID") loginId: String,
+        @Body payload: CreateMessagePayload,
+    ): Call<List<SatoriMessage>>
 }
