@@ -95,6 +95,7 @@ class ChatActivity : AppCompatActivity() {
                     SatoriText(binding.textEdit.text.toString()),
                 ),
             )
+            binding.textEdit.text.clear()
         }
     }
 
