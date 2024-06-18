@@ -17,6 +17,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,6 +42,7 @@ class ChatViewModel
             msf
                 .event
                 .ofChannel(contact.id!!)
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { event ->
                     event.toMessage()?.let { message ->
                         messages.value!!.add(message)
