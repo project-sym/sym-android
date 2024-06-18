@@ -1,6 +1,7 @@
 package com.ilharper.symri.entity.resource
 
 import android.os.Parcelable
+import com.ilharper.symri.element.SatoriElement
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
@@ -16,7 +17,7 @@ class SatoriMessage(
     /**
      * 消息内容
      */
-    var content: String? = null,
+    var content: List<SatoriElement>? = null,
     /**
      * 频道对象
      */
