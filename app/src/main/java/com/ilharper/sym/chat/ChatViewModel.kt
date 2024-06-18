@@ -8,6 +8,7 @@ import com.ilharper.sym.msf.Msf
 import com.ilharper.sym.msf.RetrofitService
 import com.ilharper.sym.viewmodel.RefreshableViewModel
 import com.ilharper.symri.element.SatoriElement
+import com.ilharper.symri.entity.SatoriEventType
 import com.ilharper.symri.entity.ext.resource.SymriContact
 import com.ilharper.symri.entity.ext.resource.toMessage
 import com.ilharper.symri.entity.paging.Page
@@ -15,6 +16,7 @@ import com.ilharper.symri.entity.payload.CreateMessagePayload
 import com.ilharper.symri.entity.payload.ListMessagePayload
 import com.ilharper.symri.entity.resource.SatoriMessage
 import com.ilharper.symri.rxjava.ofChannel
+import com.ilharper.symri.rxjava.ofType
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -43,6 +45,7 @@ class ChatViewModel
 
             msf
                 .event
+                .ofType(SatoriEventType.MESSAGE_CREATED)
                 .ofChannel(contact.id!!)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { event ->
