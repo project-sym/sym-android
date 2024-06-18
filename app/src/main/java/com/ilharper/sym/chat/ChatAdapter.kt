@@ -2,7 +2,9 @@ package com.ilharper.sym.chat
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +16,7 @@ import com.ilharper.sym.R
 import com.ilharper.sym.databinding.ItemChatBinding
 import com.ilharper.sym.symri.element.Renderer
 import com.ilharper.sym.view.RecyclerViewBindingViewHolder
+import com.ilharper.symri.entity.ext.resource.SymriContact
 
 @SuppressLint("NotifyDataSetChanged")
 class ChatAdapter(
@@ -22,6 +25,7 @@ class ChatAdapter(
     private val vm: ChatViewModel,
     private val imageLoader: ImageLoader,
     private val renderer: Renderer,
+    private val contact: SymriContact,
 ) :
     RecyclerView.Adapter<RecyclerViewBindingViewHolder<ItemChatBinding>>() {
     init {
@@ -59,8 +63,14 @@ class ChatAdapter(
     ) {
         val binding = holder.binding
         val message = vm.messages.value!![position]
+        val self = message.user!!.id == contact.logins!![0].selfId
         val name = message.member?.nick ?: message.user?.name ?: ""
         val avatar = message.member?.avatar ?: message.user?.avatar
+
+        // region Set Avatar
+
+        val usedAvatar = if (self) binding.avatarRight else binding.avatarLeft
+        val unusedAvatar = if (self) binding.avatarLeft else binding.avatarRight
 
         val avatarDrawable =
             AvatarGenerator
@@ -75,13 +85,24 @@ class ChatAdapter(
             ImageRequest
                 .Builder(context)
                 .data(avatar)
-                .target(binding.avatar)
+                .target(usedAvatar)
                 .crossfade(true)
                 .placeholder(avatarDrawable)
                 .fallback(avatarDrawable)
                 .transformations(CircleCropTransformation())
                 .build(),
         )
+
+        unusedAvatar.setImageResource(android.R.color.transparent)
+
+        usedAvatar.visibility = View.VISIBLE
+        unusedAvatar.visibility = View.GONE
+
+        // endregion
+
+        binding.cardContainer.gravity = if (self) Gravity.END else Gravity.START
+
+        binding.name.text = name
 
         val contentContainer = binding.contentContainer
         contentContainer.removeAllViews()

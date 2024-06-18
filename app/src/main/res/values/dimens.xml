@@ -4,5 +4,7 @@
     <dimen name="common_avatarimagegenerator_text">16dp</dimen>
     <dimen name="item_contact_avatar">48dp</dimen>
     <dimen name="item_contact_platform_avatar">16dp</dimen>
+    <dimen name="item_chat_avatar">64dp</dimen>
+    <dimen name="item_chat_avatar_margin">8dp</dimen>
     <dimen name="activity_chat_listview_padding">16dp</dimen>
 </resources>

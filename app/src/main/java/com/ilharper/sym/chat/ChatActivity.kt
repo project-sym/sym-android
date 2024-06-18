@@ -73,6 +73,7 @@ class ChatActivity : AppCompatActivity() {
                 vm,
                 imageLoader,
                 renderer,
+                contact,
             )
         binding.listView.adapter = chatAdapter
         vm.messages.observe(this) { binding.listView.scrollToPosition(vm.messages.value!!.size - 1) }
