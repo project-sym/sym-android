@@ -70,20 +70,17 @@ class ChatAdapter(
                 .toCircle()
                 .build()
 
-        if (avatar != null) {
-            imageLoader.enqueue(
-                ImageRequest
-                    .Builder(context)
-                    .data(avatar)
-                    .target(binding.avatar)
-                    .crossfade(true)
-                    .placeholder(avatarDrawable)
-                    .transformations(CircleCropTransformation())
-                    .build(),
-            )
-        } else {
-            binding.avatar.setImageDrawable(avatarDrawable)
-        }
+        imageLoader.enqueue(
+            ImageRequest
+                .Builder(context)
+                .data(avatar)
+                .target(binding.avatar)
+                .crossfade(true)
+                .placeholder(avatarDrawable)
+                .fallback(avatarDrawable)
+                .transformations(CircleCropTransformation())
+                .build(),
+        )
 
         val contentContainer = binding.contentContainer
         contentContainer.addView(

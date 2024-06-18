@@ -117,20 +117,17 @@ class ContactAdapter(
                 .toCircle()
                 .build()
 
-        if (contact.avatar?.isNotEmpty() == true) {
-            imageLoader.enqueue(
-                ImageRequest
-                    .Builder(context)
-                    .data(contact.avatar)
-                    .target(binding.avatar)
-                    .crossfade(true)
-                    .placeholder(avatarDrawable)
-                    .transformations(CircleCropTransformation())
-                    .build(),
-            )
-        } else {
-            binding.avatar.setImageDrawable(avatarDrawable)
-        }
+        imageLoader.enqueue(
+            ImageRequest
+                .Builder(context)
+                .data(contact.avatar)
+                .target(binding.avatar)
+                .crossfade(true)
+                .placeholder(avatarDrawable)
+                .fallback(avatarDrawable)
+                .transformations(CircleCropTransformation())
+                .build(),
+        )
 
         binding.platformAvatar.setImageDrawable(
             when (contact.platform) {
