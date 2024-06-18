@@ -60,7 +60,10 @@ open class SatoriElement private constructor() : Serializable, Parcelable {
 
             is TextNode -> {
                 type = "text"
-                attrsIntl = mutableMapOf()
+                attrsIntl =
+                    mutableMapOf(
+                        "content" to jsoupNode.text(),
+                    )
                 children = mutableListOf()
             }
 

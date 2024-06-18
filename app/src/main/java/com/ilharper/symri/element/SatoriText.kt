@@ -24,7 +24,7 @@ class SatoriText private constructor() : SatoriKnownElement(TYPE), Serializable 
     override var attrs: MutableMap<String, String>
         get() =
             extraAttrs.toMutableMap().also {
-                it["text"] = this.text ?: ""
+                it["content"] = this.text ?: ""
             }
         set(value) {
             throw RuntimeException()
