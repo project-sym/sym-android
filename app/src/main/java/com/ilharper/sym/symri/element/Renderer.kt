@@ -6,6 +6,7 @@ import android.widget.ImageView
 import coil.ImageLoader
 import coil.request.ImageRequest
 import com.google.android.material.textview.MaterialTextView
+import com.ilharper.sym.R
 import com.ilharper.symri.element.SatoriElement
 import com.ilharper.symri.element.SatoriImg
 import com.ilharper.symri.element.SatoriText
@@ -56,6 +57,11 @@ class Renderer
                 is SatoriImg ->
                     listOf(
                         ImageView(context).also {
+                            it.minimumWidth =
+                                context.resources.getDimensionPixelOffset(R.dimen.renderer_image_min_size)
+                            it.minimumHeight =
+                                context.resources.getDimensionPixelOffset(R.dimen.renderer_image_min_size)
+
                             imageLoader.enqueue(
                                 ImageRequest
                                     .Builder(context)

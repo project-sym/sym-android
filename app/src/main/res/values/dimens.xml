@@ -6,5 +6,6 @@
     <dimen name="item_contact_platform_avatar">16dp</dimen>
     <dimen name="item_chat_avatar">64dp</dimen>
     <dimen name="item_chat_avatar_margin">8dp</dimen>
+    <dimen name="renderer_image_min_size">168dp</dimen>
     <dimen name="activity_chat_listview_padding">16dp</dimen>
 </resources>
