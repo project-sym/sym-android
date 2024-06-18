@@ -1,12 +1,10 @@
 package com.ilharper.symri.element
 
-import kotlin.properties.Delegates
-
 abstract class SatoriResourceElement(
     type: String,
 ) : SatoriKnownElement(type) {
     lateinit var src: String
-    var cache by Delegates.notNull<Boolean>()
+    var cache: Boolean? = null
     var title: String? = null
     var timeout: Long? = null
 
@@ -14,7 +12,7 @@ abstract class SatoriResourceElement(
         get() =
             extraAttrs.toMutableMap().also {
                 it["src"] = src
-                if (cache) it["cache"] = ""
+                if (cache == true) it["cache"] = ""
                 if (title != null) it["title"] = title!!
                 if (timeout != null) it["timeout"] = timeout.toString()
             }
