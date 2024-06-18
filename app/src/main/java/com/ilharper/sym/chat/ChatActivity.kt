@@ -90,9 +90,11 @@ class ChatActivity : AppCompatActivity() {
         // .setFrameClearDrawable(binding.root.background)
 
         binding.sendButton.setOnClickListener {
+            val text = binding.textEdit.text.toString()
+            if (text.isBlank()) return@setOnClickListener
             vm.createMessage(
                 listOf(
-                    SatoriText(binding.textEdit.text.toString()),
+                    SatoriText(text),
                 ),
             )
             binding.textEdit.text.clear()
