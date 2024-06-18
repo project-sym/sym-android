@@ -1,7 +1,7 @@
 package com.ilharper.symri.element
 
-abstract class SymriKnownElement(
+abstract class SatoriKnownElement(
     type: String,
-) : SymriElement(type) {
+) : SatoriElement(type) {
     lateinit var extraAttrs: MutableMap<String, String>
 }

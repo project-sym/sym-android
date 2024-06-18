@@ -1,27 +1,41 @@
 package com.ilharper.symri.element
 
+import android.os.Parcel
+import android.os.Parcelable
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
+import org.jsoup.nodes.TextNode
 import org.jsoup.parser.Parser
 import java.util.Objects
 
 /**
  * Base class of Satori element.
  */
-open class SymriElement private constructor() {
+open class SatoriElement private constructor() : Parcelable {
     /**
-     * Create [SymriElement] from jsoup [Element].
+     * Create [SatoriElement] from jsoup [Element].
      */
     internal constructor(jsoupElement: Element) : this(
         jsoupElement.tagName(),
         jsoupElement.attributes().associate { it.key to it.value }.toMutableMap(),
-        jsoupElement.children().map { SymriElement(it) }.toMutableList(),
+        jsoupElement.children().map { SatoriElement(it) }.toMutableList(),
+    )
+
+    /**
+     * Create [SatoriElement] (text element) from jsoup [TextNode].
+     */
+    internal constructor(jsoupTextNode: TextNode) : this(
+        "text",
+        mutableMapOf(
+            "content" to jsoupTextNode.text(),
+        ),
+        mutableListOf(),
     )
 
     constructor(
         type: String,
         attrs: MutableMap<String, String>,
-        children: MutableList<SymriElement>,
+        children: MutableList<SatoriElement>,
     ) : this() {
         this.type = type
         attrsIntl = attrs
@@ -35,8 +49,26 @@ open class SymriElement private constructor() {
         children = mutableListOf()
     }
 
+    constructor(parcel: Parcel) : this() {
+        when (val jsoupNode = Jsoup.parse(parcel.readString()!!, Parser.xmlParser()).childNode(0)) {
+            is Element -> {
+                type = jsoupNode.tagName()
+                attrsIntl = jsoupNode.attributes().associate { it.key to it.value }.toMutableMap()
+                children = jsoupNode.children().map { SatoriElement(it) }.toMutableList()
+            }
+
+            is TextNode -> {
+                type = "text"
+                attrsIntl = mutableMapOf()
+                children = mutableListOf()
+            }
+
+            else -> throw RuntimeException()
+        }
+    }
+
     lateinit var type: String
-    lateinit var children: MutableList<SymriElement>
+    lateinit var children: MutableList<SatoriElement>
 
     private var attrsIntl: MutableMap<String, String>? = null
 
@@ -66,13 +98,30 @@ open class SymriElement private constructor() {
         if (this === other) return true
         if (other == null) return false
         if (other.javaClass != javaClass) return false
-        val o = other as SymriElement
+        val o = other as SatoriElement
         return o.type == type && o.children == children && o.attrs == attrs
     }
 
     override fun hashCode(): Int = Objects.hash(type, children, attrs)
 
-    companion object {
+    override fun writeToParcel(
+        parcel: Parcel,
+        flags: Int,
+    ) = parcel.writeString(toString())
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<SatoriElement> {
+        override fun createFromParcel(parcel: Parcel): SatoriElement {
+            return SatoriElement(parcel)
+        }
+
+        override fun newArray(size: Int): Array<SatoriElement?> {
+            return arrayOfNulls(size)
+        }
+
         fun escape(
             source: String,
             inline: Boolean = false,
@@ -115,17 +164,37 @@ open class SymriElement private constructor() {
         fun parse(
             source: String,
             ignoreKnownElement: Boolean = false,
-        ) = Jsoup.parse(source, Parser.xmlParser()).children().map {
+        ) = Jsoup.parse(source, Parser.xmlParser()).childNodes().map {
             if (ignoreKnownElement) {
-                SymriElement(it)
+                when (it) {
+                    is Element -> SatoriElement(it)
+
+                    is TextNode ->
+                        SatoriElement(
+                            "text",
+                            mutableMapOf(
+                                "content" to it.text(),
+                            ),
+                            mutableListOf(),
+                        )
+
+                    else -> throw RuntimeException()
+                }
             } else {
-                when (it.tagName()) {
-                    "img" -> SymriImg(SymriElement(it))
-                    else -> SymriElement(it)
+                when (it) {
+                    is Element ->
+                        when (it.tagName()) {
+                            "img" -> SatoriImg(SatoriElement(it))
+                            else -> SatoriElement(it)
+                        }
+
+                    is TextNode -> SatoriText(it.text())
+
+                    else -> throw RuntimeException()
                 }
             }
         }
-            .toMutableSet()
+            .toMutableList()
 
         private fun attrsToString(attrs: Map<String, String>): String =
             attrs.map {

@@ -2,9 +2,9 @@ package com.ilharper.symri.element
 
 import kotlin.properties.Delegates
 
-abstract class SymriResourceElement(
+abstract class SatoriResourceElement(
     type: String,
-) : SymriKnownElement(type) {
+) : SatoriKnownElement(type) {
     lateinit var src: String
     var cache by Delegates.notNull<Boolean>()
     var title: String? = null
