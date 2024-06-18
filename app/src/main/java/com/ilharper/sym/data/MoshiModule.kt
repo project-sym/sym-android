@@ -7,6 +7,8 @@ import com.ilharper.symri.entity.ext.resource.SymriContact
 import com.ilharper.symri.entity.paging.Page
 import com.ilharper.symri.entity.resource.SatoriChannel
 import com.ilharper.symri.entity.resource.SatoriChannelType
+import com.ilharper.symri.moshi.SatoriElementJsonAdapter
+import com.ilharper.symri.moshi.SatoriElementsJsonAdapter
 import com.ilharper.symri.moshi.SatoriPacketJsonAdapterFactory
 import com.ilharper.symri.moshi.createEnumJsonAdapter
 import com.squareup.moshi.Moshi
@@ -27,6 +29,8 @@ class MoshiModule {
             .addAdapter(createEnumJsonAdapter<SatoriChannelType>())
             .addAdapter(createEnumJsonAdapter<SatoriOp>())
             .add(SatoriPacketJsonAdapterFactory())
+            .add(SatoriElementsJsonAdapter())
+            .add(SatoriElementJsonAdapter())
             .build()
 
     @Provides
