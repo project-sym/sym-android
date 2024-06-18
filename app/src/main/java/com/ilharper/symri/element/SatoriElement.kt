@@ -6,12 +6,13 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import org.jsoup.nodes.TextNode
 import org.jsoup.parser.Parser
+import java.io.Serializable
 import java.util.Objects
 
 /**
  * Base class of Satori element.
  */
-open class SatoriElement private constructor() : Parcelable {
+open class SatoriElement private constructor() : Serializable, Parcelable {
     /**
      * Create [SatoriElement] from jsoup [Element].
      */
