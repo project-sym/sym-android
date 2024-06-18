@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.kapt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.safeargs)
+    alias(libs.plugins.parcelize)
 }
 
 android {
@@ -67,6 +69,10 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.coordinatorlayout)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.recyclerview.selection)
+    implementation(libs.androidx.viewpager)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.preference)
@@ -77,7 +83,12 @@ dependencies {
     implementation(libs.androidx.lifecycle.java8)
     implementation(libs.androidx.lifecycle.service)
     implementation(libs.androidx.lifecycle.process)
+    implementation(libs.androidx.lifecycle.reactivestreams)
     implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.rxjava3)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.androidx.navigation.features.fragment)
 
     implementation(libs.hilt.runtime)
     kapt(libs.hilt.compiler)
@@ -94,6 +105,11 @@ dependencies {
     implementation(libs.coil.base)
     implementation(libs.coil.gif)
     implementation(libs.coil.svg)
+
+    implementation(libs.rxjava)
+    implementation(libs.rxandroid)
+    implementation(libs.rxkotlin)
+    implementation(libs.reactivestreams)
 
     implementation(libs.apache.commons.lang)
     implementation(libs.jsoup)
