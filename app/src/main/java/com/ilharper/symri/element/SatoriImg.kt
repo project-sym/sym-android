@@ -1,6 +1,8 @@
 package com.ilharper.symri.element
 
-class SatoriImg private constructor() : SatoriResourceElement(TYPE) {
+import java.io.Serializable
+
+class SatoriImg private constructor() : SatoriResourceElement(TYPE), Serializable {
     constructor(element: SatoriElement) : this() {
         assert(element.type == TYPE)
 
