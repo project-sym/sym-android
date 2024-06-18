@@ -65,7 +65,7 @@ open class SymriElement private constructor() {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other == null) return false
-        // No need to assert other.javaClass == javaClass!
+        if (other.javaClass != javaClass) return false
         val o = other as SymriElement
         return o.type == type && o.children == children && o.attrs == attrs
     }
@@ -112,9 +112,20 @@ open class SymriElement private constructor() {
                     "&",
                 )
 
-        fun parse(source: String) =
-            Jsoup.parse(source, Parser.xmlParser()).children().map { SymriElement(it) }
-                .toMutableSet()
+        fun parse(
+            source: String,
+            ignoreKnownElement: Boolean = false,
+        ) = Jsoup.parse(source, Parser.xmlParser()).children().map {
+            if (ignoreKnownElement) {
+                SymriElement(it)
+            } else {
+                when (it.tagName()) {
+                    "img" -> SymriImg(SymriElement(it))
+                    else -> SymriElement(it)
+                }
+            }
+        }
+            .toMutableSet()
 
         private fun attrsToString(attrs: Map<String, String>): String =
             attrs.map {
