@@ -10,9 +10,9 @@ import coil.ImageLoader
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import com.avatarfirst.avatargenlib.AvatarGenerator
-import com.google.android.material.textview.MaterialTextView
 import com.ilharper.sym.R
 import com.ilharper.sym.databinding.ItemChatBinding
+import com.ilharper.sym.symri.element.Renderer
 import com.ilharper.sym.view.RecyclerViewBindingViewHolder
 
 @SuppressLint("NotifyDataSetChanged")
@@ -21,6 +21,7 @@ class ChatAdapter(
     private val context: Context,
     private val vm: ChatViewModel,
     private val imageLoader: ImageLoader,
+    private val renderer: Renderer,
 ) :
     RecyclerView.Adapter<RecyclerViewBindingViewHolder<ItemChatBinding>>() {
     init {
@@ -84,12 +85,7 @@ class ChatAdapter(
 
         val contentContainer = binding.contentContainer
         contentContainer.removeAllViews()
-        contentContainer.addView(
-            MaterialTextView(context)
-                .apply {
-                    text = message.content
-                },
-        )
+        renderer.render(context, message.content).forEach(contentContainer::addView)
     }
 
     override fun getItemCount() = vm.messages.value?.size ?: 0

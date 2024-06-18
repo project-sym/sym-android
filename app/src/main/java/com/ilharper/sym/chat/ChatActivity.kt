@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import coil.ImageLoader
 import com.ilharper.sym.R
 import com.ilharper.sym.databinding.ActivityChatBinding
+import com.ilharper.sym.symri.element.Renderer
 import com.ilharper.symri.entity.ext.resource.SymriContact
 import com.squareup.moshi.JsonAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +23,9 @@ class ChatActivity : AppCompatActivity() {
 
     @Inject
     lateinit var imageLoader: ImageLoader
+
+    @Inject
+    lateinit var renderer: Renderer
 
     @Inject
     lateinit var symriContactJsonAdapter: JsonAdapter<SymriContact>
@@ -67,6 +71,7 @@ class ChatActivity : AppCompatActivity() {
                 this,
                 vm,
                 imageLoader,
+                renderer,
             )
         binding.listView.adapter = chatAdapter
         vm.messages.observe(this) { binding.listView.scrollToPosition(vm.messages.value!!.size - 1) }
