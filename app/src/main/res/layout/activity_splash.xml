@@ -26,14 +26,6 @@
                 android:layout_height="wrap_content"
                 android:text="首次使用请先进行设置" />
 
-            <!--
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/enter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/common_enter" />
-            -->
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/settingsButton"
                 android:layout_width="wrap_content"
